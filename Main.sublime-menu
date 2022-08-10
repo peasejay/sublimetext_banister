@@ -1,0 +1,23 @@
+[
+    {
+        "caption": "Banister",
+        "mnemonic": "B",
+        "id": "banister",
+        "children":
+        [
+            { "command": "mbn_add_short_border_region", "caption": "Add/Remove Short Border", "mnemonic": "S" },
+            { "command": "mbn_add_stretch_border_region", "caption": "Add/Remove Stretch Border", "mnemonic": "T" },
+            { "command": "mbn_add_short_explode_region", "caption": "Explode/Unexplode Word", "mnemonic": "X" },
+            { "command": "mbn_add_underline_region", "caption": "Add/Remove Underline Region", "mnemonic": "U" },
+            { "caption": "-" },
+            { "command": "mbn_reset_regions", "caption": "Reset Regions For Selected", "mnemonic": "R" },
+            { "caption": "-" },
+            { "command": "mbn_import_regions", "caption": "Import MBN Regions", "mnemonic": "I" },
+            { "command": "mbn_export_regions", "caption": "Export MBN Regions", "mnemonic": "P" },
+            { "caption": "-" },
+            { "command": "mbn_count_justified_line_lengths", "caption": "Count Justified Line Lengths", "mnemonic": "C" },
+            { "caption": "-" },
+            { "command": "mbn_render_textblocks", "caption": "Render HTML Output", "mnemonic": "O" }
+        ]
+    }
+]
