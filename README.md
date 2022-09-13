@@ -12,11 +12,13 @@ This SublimeText plugin approaches the problem by allowing passages of a text fi
 
 As I mentioned, the above is a general workflow problem I have encountered with editing text files. Hoever, the specific use case that actually prompted me to build this plugin is much more specific and likely won't be that universally applicable.
 
-Basically, this specific script is meant to be used to replicate the formatting that I found in Manly Banister's 1950 Science Fiction fanzine [Nekromantikon](Nekromantikonhttps://fanac.org/fanzines/Nekromantikon/). Basically, Nekromantikon was a magazine that was printed out in one guy's garage using a variety of old-timey printing technologies (mimeograph, lino-printing, photoengraving on zinc plates). There are a lot of things about Nekromantikon that are interesting to me, but one that I kept thinking about when I first saw it was that it had a fully justified layout that was *fully executed on a typewriter*. I became more intrigued when I noticed that some of the spacing in Banister's lines were not evenly monospaced like you'd see on a normal typewriter - Banister was actually using combinations of spaces and half spaces to pad his characters.
+Basically, this specific script is meant to be used to replicate the formatting that I found in Manly Banister's 1950 Science Fiction fanzine [Nekromantikon](https://fanac.org/fanzines/Nekromantikon/). Basically, Nekromantikon was a magazine that was printed out in one guy's garage using a variety of old-timey printing technologies (mimeograph, lino-printing, photoengraving on zinc plates). There are a lot of things about Nekromantikon that are interesting to me, but one that I kept thinking about when I first saw it was that it had a fully justified layout that was *fully executed on a typewriter*. I became more intrigued when I noticed that some of the spacing in Banister's lines were not evenly monospaced like you'd see on a normal typewriter - Banister was actually using combinations of spaces and half spaces to pad his characters.
 
 ![Nekromantikon's fully justified blocks of text](img/nekromantikon.png)
 
 Now, the most common response that people have when I bring this up is usually along the lines of "...yeah, so?". But due to my own personal limitations, I started to become very interested in how Banister would have executed this. 
+
+
 
 This all seems like an absurdly complicated process to undertake manually. Nekromantikon had a page count of 60-90 pages.
 
