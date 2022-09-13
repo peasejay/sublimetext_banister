@@ -18,9 +18,7 @@ Basically, this specific script is meant to be used to replicate the formatting 
 
 Now, the most common response that people have when I bring this up is usually along the lines of "...yeah, so?". But due to my own personal limitations, I started to become very interested in how Banister would have executed this. 
 
-
-
-This all seems like an absurdly complicated process to undertake manually. Nekromantikon had a page count of 60-90 pages.
+This all seems like an absurdly complicated process to undertake manually. Nekromantikon had a page count of 50-90 pages over its run.
 
 Here is the algorithm that would have been required to make this happen.
 
@@ -30,4 +28,48 @@ Here is the algorithm that would have been required to make this happen.
 
     3. Where a line is a few characters shorter than 66 characters, either substitute
 
-Note that Banister's padding changes involving halfspaces always need to be balanced - half spaces need to be added to a line in multiples of 2. Banister accomplishes this by always applying padding changes both before and after a word OR by adding half spaces in between the letters of a word with an odd number of characters.
+Note that Banister's padding changes involving half spaces always need to be balanced - half spaces need to be added to a line in multiples of 2. Banister accomplishes this by always applying padding changes both before and after a word OR by adding half spaces in between the letters of a word with an odd number of characters.
+
+
+![Banister highlighted text in SublimeText editor](img/nekromantikon_edits.png)
+
+
+## Commands
+
+Commands can generally be run either from the 'Banister' Menu on the applications menu bar or from the context menu available from right clicking in the editor window.
+
+### Add/Remove Short Border
+
+Flags the current selection as being surrounded by half spaces.
+
+### Add/Remove Stretch Border
+
+Flags the current selection as being surrounded by 1.5-width spaces.
+
+### Explode/Unexplode Word
+
+Flags the current selection as containing half spaces between each character of the word. Should only be used on words with an odd number of characters to retain a blanced number of characters.
+
+### Add/Remove Underline Region
+
+Flags the current selection as being underlined.
+
+### Reset Regions for Selected
+
+Removes all Banister regions that contain the current character position (useful for undoing formatting mistakenly applied multiple formats).
+
+### Import MBN Regions
+
+Manually load an MBN sidecar file for current file and apply overlay to current document. This is normally run automatically when a text file that has an available sidecar file is loader into SublimeText.
+
+### Export MBN Regions
+
+Manually save an MBN sidecar file for current file and apply overlay to current document. This is normally run automtaically when a text file that has an available sidecar file is saved from SublimeText.
+
+### Count Justified Line Lengths (Application menu only)
+
+Runs through each line of text file in SublimeText and displays the character count of each line with formatting overlay applied.
+
+### Render HTML Output (Application menu only)
+
+Exports an HTML version of the current document with fully rendered document markup applied. This is the "final" output of the Banister markup process.
