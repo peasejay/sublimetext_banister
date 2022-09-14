@@ -1,12 +1,12 @@
-# SublimeText Banister plugin
+# Sublime Text Banister plugin
 
 ## The General Problem
 
-In my adventures, I somehow often find myself in situations where I want to add markup to a text file but, without actually CHANGING the text file. As we all know, markup, like HTML or whatever, is cool because it adds a metadata overlay to a text file that can than be "hooked" into using a web browser or CSS presentation or some such post-processer to add either formatting or functionality.
+In my adventures, I somehow often find myself in situations where I want to add markup to a text file but, without actually CHANGING the text file. As we all know, markup, like HTML or whatever, is cool because it adds metadata to a text file that can than be "hooked" into using a web browser or CSS presentation or some such post-processer to add either formatting or functionality.
 
 This is all wonderful, but as a file becomes marked up, one loses one's ability to actually edit the CONTENT of text file - it can be hard to gauge how a paragraph actually "reads" when there is a bunch of markup in the way.
 
-This SublimeText plugin approaches the problem by allowing passages of a text file to be highlighted and tagged in SublimeText, and then that metadata saved to a separate "sidecar" file, either for reopening back into SublimeText (to allow further revisions) or for later processing using a separate script.
+This SublimeText plugin approaches the problem by allowing passages of a text file to be highlighted and tagged in Sublime Text, and then that metadata saved to a separate "sidecar" file, either for reopening back into SublimeText (to allow further revisions) or for later processing using a separate script.
 
 I am going to proceed to discuss the specific problem I'm trying to solve with this plugin, but want to first mention that this approach can probably be useful in other text file editing domains as well. For instance, a similar plugin could be made to apply more general HTML markup to a text document.
 
@@ -19,27 +19,28 @@ This specific script is meant to be used to replicate the formatting that I foun
 
 ![Nekromantikon's fully justified blocks of text](img/nekromantikon.png)
 
-Now, the most common response that people have when I bring this up is usually along the lines of "...yeah, so?". But due to my own personal limitations, I started to become very interested in how Banister would have executed this. 
-
-This all seems like an absurdly complicated process to undertake manually. Nek had a page count of 50-90 pages over its run.
+Now, the most common response that people have when I bring this up is usually along the lines of "...yeah, so?". But due to some personal character flaw, I started to become very interested in how Banister would have executed this. 
 
 Here is the algorithm that would have been required to make this happen.
 
-    1. Count the characters on each line. Most lines in Nekromantikon 2 are exactly 66 characters long.
+    1. Count the characters on each line. Most lines in Nekromantikon 2 are 66 characters long
+    2. Where a line is a few characters LONGER than 66 characters:
+        a. substitute some of the double spaces in the line (double spaces frequently used to start sentences) with normal spaces, or
+        b. substitute spaces before and after a word with half-spaces ('short' spaces).
+    3. Where a line is a few characters SHORTER than 66 characters:
+        a. substitute a space in the line with a double space, or
+        b. substitute spaces before and after a word with 1.5-space width ('stretch') spaces, or
+        c. explode a word by adding half-spaces between each letter (exploded word must have an odd number of letters)
 
-    2. Where a line is a few characters longer than 66 characters, substitute some of the double spaces in the line with normal spaces OR some of the spaces with half-spaces.
-
-    3. Where a line is a few characters shorter than 66 characters, either substitute
-
-Note that Banister's padding changes involving half spaces always need to be balanced - half spaces need to be added to a line in multiples of 2. Banister accomplishes this by always applying padding changes both before and after a word OR by adding half spaces in between the letters of a word with an odd number of characters.
+Note that Banister's padding changes involving half-spaces always need to be balanced - half-spaces need to be added to a line in multiples of 2. Banister accomplishes this by always applying padding changes both before and after a word OR by adding half-spaces in between the letters of a word with an odd number of characters.
 
 
-![Banister-highlighted text in SublimeText editor](img/nekromantikon_edits.png)
+![Banister-highlighted text in Sublime Text editor](img/nekromantikon_edits.png)
 
 
 ## The Plugin
 
-### Actual Markup
+### Actual Markup Used
 
 #### Block Dividers
 
@@ -81,17 +82,17 @@ Removes all Banister regions that contain the current character position (useful
 
 #### Import MBN Regions
 
-Manually load an MBN sidecar file for current file and apply overlay to current document. This is normally run automatically when a text file that has an available sidecar file is loader into SublimeText.
+Manually load an MBN sidecar file for current file and apply overlay to current document. This is normally run automatically when a text file that has an available sidecar file is loader into Sublime Text.
 
 #### Export MBN Regions
 
-Manually save an MBN sidecar file for current file and apply overlay to current document. This is normally run automtaically when a text file that has an available sidecar file is saved from SublimeText.
+Manually save an MBN sidecar file for current file and apply overlay to current document. This is normally run automtaically when a text file that has an available sidecar file is saved from Sublime Text.
 
 #### Count Justified Line Lengths (Application menu only)
 
-Runs through each line of text file in SublimeText and displays the character count of each line with formatting overlay applied. Lines of the correct length are decorated with green highlights, lines that are long are decorated with red highlights, and lines that are short are decorated with orange highlights.
+Runs through each line of text file in Sublime Text and displays the character count of each line with formatting overlay applied. Lines of the correct length are decorated with green highlights, lines that are long are decorated with red highlights, and lines that are short are decorated with orange highlights.
 
-Note that short lines will be fairly common in practice because the last line of paragraphs as well as paragraphs that cover only a single line are not justified. Long lines are more rare in Banister's output (as they imply that somebody made a mistake in applying the algorithm), but in some cases he does exceed his planned line character count (note the line starting "phone somebody in Lefarge..." (line 808 in the SublimeText screenshot) for an example of this) in the actual Nek.
+Note that short lines will be fairly common in practice because the last line of paragraphs as well as paragraphs that cover only a single line are not justified. Long lines are more rare in Banister's output (as they imply that somebody made a mistake in applying the algorithm), but in some cases he does exceed his planned line character count (note the line starting "phone somebody in Lefarge..." (line 808 in the Sublime Text screenshot) for an example of this) in the actual Nek.
 
 #### Render HTML Output (Application menu only)
 
