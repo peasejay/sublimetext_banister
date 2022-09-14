@@ -50,7 +50,7 @@ Example:
 
     == fen_wer_15 66 ==
 
-The above markup indictes that the following section should be identified using an id of `fen_wer_15` (which literally maps to the identified page 15 of the printed Nek) in the rendered HTML markup. This is useful for placing the rendered text block in the context of a larger document. The second argument identifies the target line character count for the text blocks that follow.
+The above markup indicates that the following section should be identified using an id of `fen_wer_15` (which literally maps to the identified page 15 of the printed Nek) in the rendered HTML markup. This is useful for placing the rendered text block in the context of a larger document. The second argument identifies the target line character count for the text blocks that follow.
 
 #### Paragraphs
 
@@ -99,3 +99,10 @@ Note that short lines will be fairly common in practice because the last line of
 #### Render HTML Output (Application menu only)
 
 Exports an HTML version of the current document with fully rendered document markup applied. This is the "final" output of the Banister markup process.
+
+
+## Known Issues
+
+### Slow region iterations
+
+The approach I used for iterating through regions is very unoptimized (which is most obvious when rendering a full document to HTML). There is probably more that can be done to constrain the regions (perhaps constraining regions to those on a particular line) before iterating through them.
