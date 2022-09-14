@@ -8,7 +8,7 @@ This is all wonderful, but as a file becomes marked up, one loses one's ability 
 
 This SublimeText plugin approaches the problem by allowing passages of a text file to be highlighted and tagged in SublimeText, and then that metadata saved to a separate "sidecar" file, either for reopening back into SublimeText (to allow further revisions) or for later processing using a separate script.
 
-I am going to proceed to discuss the specific problem I'm trying to solve with this plugin, but want to first emphasize that this approcah can probably be useful in other text file editing domains as well. For instance, a similar plugin could be made to apply more general HTML markup to a text document.
+I am going to proceed to discuss the specific problem I'm trying to solve with this plugin, but want to first mention that this approach can probably be useful in other text file editing domains as well. For instance, a similar plugin could be made to apply more general HTML markup to a text document.
 
 
 ## The Specific Problem
@@ -21,7 +21,7 @@ This specific script is meant to be used to replicate the formatting that I foun
 
 Now, the most common response that people have when I bring this up is usually along the lines of "...yeah, so?". But due to my own personal limitations, I started to become very interested in how Banister would have executed this. 
 
-This all seems like an absurdly complicated process to undertake manually. Nekromantikon had a page count of 50-90 pages over its run.
+This all seems like an absurdly complicated process to undertake manually. Nek had a page count of 50-90 pages over its run.
 
 Here is the algorithm that would have been required to make this happen.
 
@@ -37,44 +37,62 @@ Note that Banister's padding changes involving half spaces always need to be bal
 ![Banister-highlighted text in SublimeText editor](img/nekromantikon_edits.png)
 
 
-## Commands
+## The Plugin
+
+### Actual Markup
+
+#### Block Dividers
+
+Example: 
+
+    == fen_wer_15 66 ==
+
+The above markup indictes that the following section should be identified using an id of `fen_wer_15` (which literally maps to the identified page 15 of the printed Nek) in the rendered HTML markup. This is useful for placing the rendered text block in the context of a larger document. The second argument identifies the target line character count for the text blocks that follow.
+
+#### Paragraphs
+
+Paragraphs are delimited by a single blank line in the source text file.
+
+
+
+### Commands
 
 Commands can generally be run either from the 'Banister' Menu on the applications menu bar or from the context menu available from right clicking in the editor window.
 
-### Add/Remove Short Border
+#### Add/Remove Short Border
 
-Flags the current selection as being surrounded by half spaces.
+Flags the current selection as being surrounded by half spaces - flag is displayed as a blue highlight. 
 
-### Add/Remove Stretch Border
+#### Add/Remove Stretch Border
 
-Flags the current selection as being surrounded by 1.5-width spaces.
+Flags the current selection as being surrounded by 1.5-width spaces - flag is displayed as a purple highlight.
 
-### Explode/Unexplode Word
+#### Explode/Unexplode Word
 
-Flags the current selection as containing half spaces between each character of the word. Should only be used on words with an odd number of characters to retain a blanced number of characters.
+Flags the current selection as containing half spaces between each character of the word. Should only be used on words with an odd number of characters to retain a balanced number of characters. Flag is displayed as a green highlight.
 
-### Add/Remove Underline Region
+#### Add/Remove Underline Region
 
-Flags the current selection as being underlined.
+Flags the current selection as being underlined. Flag is displayed as a wavy underline.
 
-### Reset Regions for Selected
+#### Reset Regions for Selected
 
 Removes all Banister regions that contain the current character position (useful for undoing formatting mistakenly applied multiple formats).
 
-### Import MBN Regions
+#### Import MBN Regions
 
 Manually load an MBN sidecar file for current file and apply overlay to current document. This is normally run automatically when a text file that has an available sidecar file is loader into SublimeText.
 
-### Export MBN Regions
+#### Export MBN Regions
 
 Manually save an MBN sidecar file for current file and apply overlay to current document. This is normally run automtaically when a text file that has an available sidecar file is saved from SublimeText.
 
-### Count Justified Line Lengths (Application menu only)
+#### Count Justified Line Lengths (Application menu only)
 
 Runs through each line of text file in SublimeText and displays the character count of each line with formatting overlay applied. Lines of the correct length are decorated with green highlights, lines that are long are decorated with red highlights, and lines that are short are decorated with orange highlights.
 
 Note that short lines will be fairly common in practice because the last line of paragraphs as well as paragraphs that cover only a single line are not justified. Long lines are more rare in Banister's output (as they imply that somebody made a mistake in applying the algorithm), but in some cases he does exceed his planned line character count (note the line starting "phone somebody in Lefarge..." (line 808 in the SublimeText screenshot) for an example of this) in the actual Nek.
 
-### Render HTML Output (Application menu only)
+#### Render HTML Output (Application menu only)
 
 Exports an HTML version of the current document with fully rendered document markup applied. This is the "final" output of the Banister markup process.
