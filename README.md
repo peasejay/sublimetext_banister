@@ -19,9 +19,9 @@ Half-spacing was apparently a feature found on some typewriters for enabling cer
 
 ![Nekromantikon's fully justified blocks of text](img/nekromantikon.png)
 
-Now, the most common response that I get when I bring up Banister's formatting of Nek is usually along the lines of "...yeah, so?". But due to some deep-seated personal character flaws, I started to become very interested in how Banister would have executed this. 
+Now, the most common response that I get when I bring up Banister's formatting of Nek is usually along the lines of "...yeah, so?" But due to some deep-seated personal character flaws, I started to become very interested in how Banister would have executed this, and trying to find a software approach for replicating it. 
 
-Here is the algorithm that would have been required to make this happen.
+Here is the algorithm that would have been required to make this happen:
 
     1. Count the characters on each line. Most lines in Nekromantikon 2 are 66 characters long.
     2. Where a line is a few characters LONGER than 66 characters:
