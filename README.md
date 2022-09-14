@@ -2,7 +2,7 @@
 
 ## The General Problem
 
-In my adventures, I somehow often find myself in situations where I want to add markup to a text file but without actually CHANGING the text file. Markup is wonderful, but as a file becomes marked up, one loses one's ability to actually edit the CONTENT of text file - it can be hard to gauge how a paragraph actually "reads" when there is a bunch of markup in the way.
+In my adventures, I somehow often find myself in situations where I want to add markup to a text file but without actually *changing* the text file. Markup is wonderful, but as a file becomes marked up, one loses one's ability to actually edit the *content* of text file - it can be hard to gauge how a paragraph actually "reads" when there is a bunch of markup in the way.
 
 This Sublime Text plugin approaches the problem by allowing passages of a text file to be highlighted and tagged in Sublime Text, and then that metadata saved to a separate "sidecar" file, either for reopening back into Sublime Text (to allow further revisions) or for later processing using a separate script.
 
